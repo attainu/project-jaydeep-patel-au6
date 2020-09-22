@@ -69,7 +69,7 @@ exports.registerController = (req, res) => {
             .send(emailData)
             .then(sent => {
               return res.json({
-                message: `Email has been sent to ${email}`
+                message: `Email has been sent to ${email} Please activate the account`
               });
             })
             .catch(err => {
