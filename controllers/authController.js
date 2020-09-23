@@ -86,3 +86,7 @@ exports.registerController = (req, res) => {
 
 
 }
+
+exports.activationController = (req,res) => {
+    
+}
