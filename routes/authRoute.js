@@ -7,7 +7,8 @@ const {
     registerController,
     activationController,
     signinController,
-    forgotPasswordController
+    forgotPasswordController,
+    resetPasswordController
 } = require('../controllers/authController.js')
 
 
@@ -23,5 +24,6 @@ const {
 router.post('/register' ,validRegister, registerController)
 router.post('/login' ,validLogin, signinController)
 router.post('/activation', activationController)
-router.put('/forgotpassword', forgotPasswordValidator, forgotPasswordController);
+router.put('/forgotpassword', forgotPasswordValidator, forgotPasswordController)
+router.put('/resetpassword', resetPasswordValidator, resetPasswordController);
 module.exports = router
