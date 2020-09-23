@@ -56,7 +56,7 @@ exports.registerController = (req, res) => {
                 password
             },
             process.env.JWT_ACCOUNT_ACTIVATION, {
-                expiresIn: '15m'
+                expiresIn: '1day'
             }
         )
 
