@@ -5,7 +5,8 @@ const router = express.Router()
 //load controllers
 const {
     registerController,
-    activationController
+    activationController,
+    signinController
 } = require('../controllers/authController.js')
 
 
@@ -19,6 +20,7 @@ const {
 
 
 router.post('/register' ,validRegister, registerController)
+router.post('/login' ,validLogin, signinController)
 router.post('/activation', activationController)
 
 module.exports = router

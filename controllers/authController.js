@@ -56,7 +56,7 @@ exports.registerController = (req, res) => {
                 password
             },
             process.env.JWT_ACCOUNT_ACTIVATION, {
-                expiresIn: '1day'
+                expiresIn: '1d'
             }
         )
 
@@ -98,7 +98,9 @@ exports.registerController = (req, res) => {
 //activation and save to database
 exports.activationController = (req, res) => {
 
-    const { token } = req.body;
+    const {
+        token
+    } = req.body;
 
     if (token) {
 
@@ -146,3 +148,60 @@ exports.activationController = (req, res) => {
         });
     }
 }
+
+//login 
+exports.signinController = (req, res) => {
+
+    const { email, password } = req.body
+    const errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+      const firstError = errors.array().map(error => error.msg)[0];
+      return res.status(422).json({
+        errors: firstError
+      })
+
+    } else {
+
+      // check if user exist
+      User.findOne({
+        email
+      }).exec((err, user) => {
+        if (err || !user) {
+          return res.status(400).json({
+            errors: 'email does not exist. Please signup'
+          });
+        }
+
+        // authenticate
+        if (!user.authenticate(password)) {
+          return res.status(400).json({
+            errors: 'Incorrect password'
+          });
+        }
+
+        // generate a token
+        const token = jwt.sign(
+          {
+            _id: user._id
+          },
+          process.env.JWT_SECRET,
+          {
+            expiresIn: '7d'
+          }
+        );
+
+        const { _id, name, email, role } = user;
+  
+        return res.json({
+          token,
+          user: {
+            _id,
+            name,
+            email,
+            role
+          }
+        })
+      })
+    }
+  }

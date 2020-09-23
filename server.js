@@ -15,6 +15,7 @@ require('dotenv').config({
 
 //body parsers
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 //connection to db
 connectionDB()
