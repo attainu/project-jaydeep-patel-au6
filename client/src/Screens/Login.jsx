@@ -41,7 +41,7 @@ const Login = ({ history }) => {
                             password1: '',
 
                         });
-                        console.log(res.data)
+                        console.log(res.data.user.role)
 
 
 
@@ -49,10 +49,10 @@ const Login = ({ history }) => {
                     })
 
                     //   if role is admin goto admin otherwise private
-                    isAuth() && isAuth().role === 'Admin'
+                    isAuth() && res.data.user.role === 'Admin'
                         ? history.push('/admin')
                         : history.push('/private');
-                    console.log(isAuth().role)
+                
                     toast.success(`Hey ${res.data.user.name}, Welcome back!`);
                 })
 

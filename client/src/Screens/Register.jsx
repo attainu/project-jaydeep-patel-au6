@@ -46,7 +46,7 @@ const Register = () => {
                     })
 
                     .catch(err => {
-                        toast.error(err.response.data.error)
+                         toast.error('email exist, please login')
                     })
 
             } else {
