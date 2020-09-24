@@ -8,7 +8,8 @@ const {
     activationController,
     signinController,
     forgotPasswordController,
-    resetPasswordController
+    resetPasswordController,
+    googleLoginController
 } = require('../controllers/authController.js')
 
 
@@ -18,6 +19,7 @@ const {
     validLogin,
     forgotPasswordValidator,
     resetPasswordValidator
+   
 } = require('../helpers/valid.js')
 
 
@@ -26,4 +28,5 @@ router.post('/login' ,validLogin, signinController)
 router.post('/activation', activationController)
 router.put('/forgotpassword', forgotPasswordValidator, forgotPasswordController)
 router.put('/resetpassword', resetPasswordValidator, resetPasswordController);
+router.post('/googlelogin', googleLoginController)
 module.exports = router
