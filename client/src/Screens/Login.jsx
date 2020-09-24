@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom'
 import { authenticate, isAuth } from '../helpers/auth.js'
+import { GoogleLogin } from 'react-google-login'
 
 const Login = ({ history }) => {
 
@@ -21,6 +22,10 @@ const Login = ({ history }) => {
         // console.log(name, email, password1, password2)
         setFormData({ ...formData, [text]: e.target.value })
     }
+
+    
+
+
 
     //submit data to backend
     const handleSubmit = e => {
@@ -82,6 +87,8 @@ const Login = ({ history }) => {
                         <h1 className='text-2xl xl:text-3xl font-extrabold'>
                             Sign In for User
                         </h1>
+
+                       
 
                         {/* form */}
 

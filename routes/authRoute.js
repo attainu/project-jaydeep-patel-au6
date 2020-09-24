@@ -28,5 +28,5 @@ router.post('/login' ,validLogin, signinController)
 router.post('/activation', activationController)
 router.put('/forgotpassword', forgotPasswordValidator, forgotPasswordController)
 router.put('/resetpassword', resetPasswordValidator, resetPasswordController);
-router.post('/googlelogin', googleLoginController)
+
 module.exports = router
