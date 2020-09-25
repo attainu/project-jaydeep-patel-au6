@@ -46,12 +46,6 @@ export const authenticate = (responce, next) => {
     next()
 }
 
-//signout
-export const signout = next => {
-    removeCookie('token')
-    removeLocalStorage('user')
-}
-
 //get user info from localStorage
 export const isAuth = () => {
     if(window !== 'undefined'){
@@ -65,6 +59,7 @@ export const isAuth = () => {
             }
         }
     }
+    
 }
 
 //update user data in local storage

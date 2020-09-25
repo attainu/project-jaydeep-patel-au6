@@ -13,6 +13,8 @@ require('dotenv').config({
     path : './config/config.env'
 })
 
+
+
 //body parsers
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
