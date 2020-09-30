@@ -12,7 +12,7 @@ class Home extends React.Component {
             products : data.products,
             size: '',
             sort: '',
-            cartItems: []
+            cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : []
         }
        
     }
@@ -22,6 +22,7 @@ class Home extends React.Component {
         this.setState({ 
             cartItems: cartItems.filter((x) => x._id !== product._id)
         })
+        localStorage.setItem("cartItems", JSON.stringify(cartItems.filter((x) => x._id !== product._id)))
     }
 
     addToCart = (product) => {
@@ -40,6 +41,7 @@ class Home extends React.Component {
         }
 
         this.setState({cartItems})
+        localStorage.setItem("cartItems", JSON.stringify(cartItems))
     }
 
     sortProducts = (e) => {
