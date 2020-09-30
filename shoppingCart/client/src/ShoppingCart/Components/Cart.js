@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import formatCurrancy from './util.js'
 
 export default class Cart extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = { showCheckout: false }
+    }
+
+
+
     render() {
 
         const { cartItems } = this.props
@@ -63,6 +71,7 @@ export default class Cart extends Component {
                             </button>
                           </div>
                         </div>
+                        
                         </div>
                     )}
                 </div>
