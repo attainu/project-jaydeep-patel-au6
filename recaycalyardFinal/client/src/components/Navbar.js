@@ -66,7 +66,7 @@ const NavBar = () => {
 
     return ( <nav>
         <div className="nav-wrapper white" >
-          <Link to={state?"/" : "/signin"} className="brand-logo left">RecycleYard</Link>
+          <Link to={state?"/" : "/signin"} className="brand-logo left" style={{fontFamily:  "Special Elite, cursive, Ultra, serif", fontSize: 28}}><i className="fa fa-recycle fa_custom fa-2x"></i>RecycleYard</Link>
           <ul id="nav-mobile" className="right">
             {renderList()}
           </ul>

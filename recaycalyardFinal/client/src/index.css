@@ -226,3 +226,7 @@ input {
   top: 2.5rem;
   z-index: 1000;
 }
+
+.fa_custom {
+  color: #0099CC
+  }
